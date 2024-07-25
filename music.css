@@ -1,0 +1,148 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+}
+.musicplayer{
+    width: 350px;
+    height: 540px;
+    border-radius: 20px;
+    background: rgba(225, 225,225, 0.08);
+    padding: 30px;
+    overflow: hidden;
+    color: aliceblue;
+}
+.Song,.Artist{
+    text-align: center;
+    text-transform: capitalize;
+}
+.disk{
+    position: relative;
+    display: block;
+    margin: 40px auto;
+    background-image: url(WinterWonderland-1.jpg);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+    animation-play-state: paused;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.disk.play{
+    animation-play-state: running;
+}
+.songslider{
+    width: 100%;
+    position: relative;
+}
+.seekbar{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: #0093E9;
+    cursor: pointer;
+    overflow: hidden;
+}
+.seekbar::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 10px;
+    height: 20px;
+    background-color: #80D0C7;
+    box-shadow: -400px 0 0 400px #80D0C7;
+}
+.currenttime,.timeduration{
+    font-size: 12px;
+
+}
+.timeduration{
+    position: absolute;
+    right: 0px;
+}
+.controls{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 10px;
+}
+.playbtn{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: bisque;
+    cursor: pointer;
+    border: none;
+}
+.playbtn span{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: black;
+    transition: .5s;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.playbtn span:nth-child(2){
+    left:55%;
+    transform-origin: center;
+}
+.playbtn.pause span:nth-child(2){
+    transform: translateY(-50%) scale(0);
+}
+.playbtn.pause span:nth-child(1){
+    width: 35%;
+    height: 53%;
+    transform: translate(-50% -50%);
+    border: 0%;
+    clip-path: polygon(0 0, 0% 100%, 100% 47%);
+    clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+}
+.playbtn.pause{
+    animation: pulse 2s linear infinite;
+}
+@keyframes pulse{
+ 0%{
+    box-shadow: 0%;
+ }
+ 50%{
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+ }
+ 100%{
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.4);
+ }
+}
+.btn{
+    width: 40px;
+    height: 40px;
+    background-color: bisque;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
